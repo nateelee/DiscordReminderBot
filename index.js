@@ -2,14 +2,14 @@ const DiscordJS = require("discord.js")
 const WOKCommands = require("wokcommands")
 require("dotenv").config()
 
-const  cilent = new DiscordJS.cilent()
+const client = new DiscordJS.Client({intents: ["GUILDS","GUILD_MESSAGES"]})
 
-cilent.on("ready", () =>{
+client.on("ready", () =>{
     console.log('The bot is ready')
-    new WOKCommands(cilent, {
+    new WOKCommands(client, {
         commandsDir: "commands",
         showWarns: false
     }).setMongoPath(process.env.MONGO_URI)
 })
 
-cilent.login(process.env.TOKEN)
+client.login(process.env.TOKEN)
