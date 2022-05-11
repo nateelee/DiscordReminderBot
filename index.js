@@ -12,4 +12,4 @@ client.on("ready", () =>{
     }).setMongoPath(process.env.MONGO_URI)
 })
 
-client.login(process.env.TOKEN)
+client.login(process.env.TOKEN) 
